@@ -1,0 +1,23 @@
+{% extends 'user/base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- about section start -->
+<div class="about_section layout_padding">
+   <div class="container-fluid">
+       <div class="row justify-content-center">
+           <div class="col-md-7">
+               <div class="about_taital_main mb-5">
+                   <h4 class="about_taital">{{view.name}}</h4>
+                   <p class="about_text"><span style="font-size: 35px;color: coral;">Thank you for choosing our services!</span>  Your booking request has been received successfully. <br>Our team is diligently working on processing your request. You can expect a call back shortly to confirm the details and finalize your booking. We appreciate your trust in us and look forward to providing you with an exceptional experience. </p>
+
+
+               </div>
+           </div>
+       </div>
+   </div>
+</div>
+
+<!-- about section end -->
+
+{% endblock %}

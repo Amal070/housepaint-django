@@ -1,0 +1,43 @@
+{% extends 'user/base.html' %}
+{% load static %}
+{% block content %}
+   <!-- Your other content goes here -->
+
+   <!-- Table for Purchaser History -->
+   <div class="container mt-5" >
+      <h2 style="padding-top: 150px;">Purchaser History</h2>
+      <table class="table table-bordered mt-3">
+         <thead>
+            <tr>
+               <th>Shop Name</th>
+               <th>Shop Phone Number</th>
+               <th>Package Name</th>
+               <th>Package Rate</th>
+               <th>Package Warranty</th>
+               <th>Customer Name</th>
+               <th>Status</th>
+            
+            </tr>
+         </thead>
+         <tbody>
+            <!-- Sample data, replace it with actual data from your database -->
+            {% for i in view %}
+            <tr>
+               <td>{{i.shop_name}}</td>
+               <td>{{i.shop_phone}}</td>
+               <td>{{i.packg_name}}</td>
+               <td>{{i.rate}}</td>
+               <td>{{i.warranty}}</td>
+               <td>{{i.cust_name}}</td>
+               <td>{% if i.status %}
+                        Approved
+                    {% else %}
+                        Processing
+                    {% endif %}</td>
+            </tr>
+            {% endfor %}   
+            <!-- Add more rows as needed with actual data -->
+         </tbody>
+      </table>
+   </div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'user/base.html' %}
+{% load static %}
+{% block content %}
+ 
+ <!-- user profile section start -->
+   <div class="user_profile_section layout_padding">
+      <div class="container">
+         <div class="user_profile_container">
+            <div class="row">
+               <div class="col-md-12">
+                  <h2 class="user_profile_title" style="margin-top: 20px;margin-bottom: 10px;font-weight: 1000;">User Profile</h2>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-4">
+                  <!-- User Image -->
+                  <div class="user_profile_image">
+                     <img src="{{view.photo.url}}" alt="User Image" style="width: 150px; height: 150px;border-radius: 100px;margin-top: 20px; ">
+                  </div>
+               </div>
+               <div class="col-md-8">
+                  <!-- User Details -->
+                  <div class="user_profile_details">
+                     <!-- Top User Name -->
+                     <!-- <h3 class="user_profile_name">Top User Name</h3> -->
+
+                     <!-- Name -->
+                     <p><strong style="font-weight: 800;margin-right: 5px;">Name:</strong>{{view.name}}</p>
+
+                     <!-- Email -->
+                     <p><strong style="font-weight: 800;margin-right: 5px;">Email:</strong>{{view.email}}</p>
+
+                     <!-- Phone -->
+                     <p><strong style="font-weight: 800;margin-right: 5px;">Phone:</strong> {{view.mobile}}</p>
+
+                     <!-- Address -->
+                     <p><strong style="font-weight: 800;margin-right: 5px;">Address:</strong> {{view.address}}</p>
+                     <p><a href="{% url 'Update_user_profile' view.pk %}" class="btn btn-danger">Update</a></p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- user profile section end -->
+{% endblock %}

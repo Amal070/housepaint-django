@@ -1,0 +1,25 @@
+{% extends 'user/base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- about section start -->
+<div class="about_section layout_padding">
+   <div class="container-fluid">
+       <div class="row justify-content-center">
+           <div class="col-md-7">
+               <div class="about_taital_main mb-5">
+                   <h4 class="about_taital">{{view.name}}</h4>
+                   <p class="about_text">Shop Name : <span style="font-weight: 700;color: rgb(218, 14, 14);">{{view.shop_1.name}}</span></p>
+                   <p class="about_text">Square Feet Rate : <span style="font-weight: 700;color: rgb(229, 18, 166);">{{view.rate}}</span></p>
+                   <p class="about_text">Warranty : <span style="font-weight: 700;color: rgb(229, 18, 166);">{{view.Warranty}} Years</span></p>
+                   <p class="about_text">Description : <span style="font-weight: 700;color: rgb(229, 18, 166);">{{view.description}}</span></p>
+                   <div class="read_bt "><a href="{% url 'send_package_request' view.pk %}">Send Request</a></div>
+               </div>
+           </div>
+       </div>
+   </div>
+</div>
+
+<!-- about section end -->
+
+{% endblock %}

@@ -1,0 +1,113 @@
+{% extends 'user/base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    .contact_section {
+        background-color: #f8f9fa;
+        padding: 50px 0;
+    }
+
+    .contact_taital {
+        text-align: center;
+        color: #333;
+        font-size: 30px;
+        margin-bottom: 30px;
+    }
+
+    .mail_section_1 {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 15px 0px #ccc;
+    }
+
+    .mail_section_1 label {
+        font-weight: bold;
+    }
+
+    .mail_text {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .massage-bt {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .send_bt {
+        text-align: center;
+        margin-top: 20px;
+    }
+</style>
+
+<div class="contact_section layout_padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1 class="contact_taital">Send Request Form</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="contact_section_2">
+            <form class="user" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="mail_section_1">
+                            <h1>Shop Details </h1><hr>
+                            
+                            <input type="number" class="mail_text" placeholder="Name" name="shop_id" id="shop_id" value="{{view.shop_1.id}}" style="display: none;"><br>
+                            <label for="name">Shop Name</label>
+                            <input type="text" class="mail_text" placeholder="Name" name="shop_name" id="shop_name" value="{{view.shop_1.name}}" readonly><br>
+
+                            <label for="email">Shop Address</label>
+                            <input type="text" class="mail_text" placeholder="Email" name="shop_address" id="email" value="{{view.shop_1.email}}" readonly><br>
+
+                            <label for="phone">Shop Phone</label>
+                            <input type="number" class="mail_text" placeholder="Phone Number" name="shop_phone" id="phone" value="{{view.shop_1.mobile}}" readonly><br><br>
+                            
+                            <h1 >Package Details </h1><hr>
+                            
+                            <input type="number" class="mail_text" placeholder="Name" name="pack_id" id="pack_id" value="{{view.id}}" style="display: none;"><br>
+                            <label for="name">Package Name</label>
+                            <input type="text" class="mail_text" placeholder="Name" name="pack_name" id="pack_name" value="{{view.name}}" readonly><br>
+
+                            <label for="email">Package Warranty</label>
+                            <input type="email" class="mail_text" placeholder="Email" name="warranty" id="warranty" value="{{view.Warranty}}" readonly><br>
+
+                            <label for="phone">Square Feet Rate</label>
+                            <input type="number" class="mail_text" placeholder="Phone Number" name="rate" id="phone" value="{{view.rate}}" readonly><br>
+
+                            <h1 >Customer Details </h1><hr>
+                            
+                            <input type="number" class="mail_text" placeholder="Name" name="cus_id" id="name" value="{{request.user.id}}" style="display: none;"><br>
+                            <label for="name">Customer Name</label>
+                            <input type="text" class="mail_text" placeholder="Name" name="cus_name" id="name" value="{{request.user.name}}"><br>
+                            <label for="name">Customer Address</label>
+                            <input type="text" class="mail_text" placeholder="Name" name="cus_address" id="name" value="{{request.user.address}}"><br>
+                            <label for="phone">Customer Phone</label>
+                            <input type="number" class="mail_text" placeholder="Phone Number" name="cus_phone" id="phone" value="{{request.user.mobile}}"><br><br>
+           
+                            <div class="send_bt">
+                                <button type="submit" class="btn btn-success mt-3">Send Request</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

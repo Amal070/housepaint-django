@@ -1,0 +1,38 @@
+{% extends 'user/base.html' %}
+{% load static %}
+{% block content %}
+   <!-- Your other content goes here -->
+
+   <!-- Table for Purchaser History -->
+   <div class="container mt-5" >
+      <h2 style="padding-top: 150px;">Work Progress</h2>
+      <table class="table table-bordered mt-3">
+         <thead>
+            <tr>
+               <th>Site Name</th>
+               <th>Number Of Workes</th>
+               <th>Work Date</th>
+               <th>Work Start Time</th>
+               <th>Work End Time</th>
+               <th>Work Site Image</th>
+            
+            </tr>
+         </thead>
+         <tbody>
+            <!-- Sample data, replace it with actual data from your database -->
+            {% for i in view %}
+            <tr>
+               <td>{{i.site}}</td>
+               <td>{{i.worker}}</td>
+               <td>{{i.date}}</td>
+               <td>{{i.start}}</td>
+               <td>{{i.end}}</td>
+               <td><img src="{{i.images.url}}" alt="" style="width: 100px;height: 100px;"></td>
+               
+            </tr>
+            {% endfor %}   
+            <!-- Add more rows as needed with actual data -->
+         </tbody>
+      </table>
+   </div>
+{% endblock %}
